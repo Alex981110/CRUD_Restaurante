@@ -1,10 +1,21 @@
-import React from 'react'
+import React from 'react';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import SideBarMenu from './components/common/SideBarMenu';
+import CrearPlatillo from './components/crearPlatillo/CrearPlatillo';
+import EditarPlatillo from './components/editarPlatillo/EditarPlatillo';
+import ListaPlatillos from './components/listaPlatillos/ListaPlatillos';
 
 const App = () => {
   return (
-    <div>
-      <h1>hola xd</h1>
-    </div>
+    <main>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={ListaPlatillos} />
+          <Route exact path="/crearPlatillo" component={CrearPlatillo} />
+          <Route exact path="/editarPlatillo" component={EditarPlatillo} />
+        </Switch>
+      </Router>
+    </main>
   )
 }
 
