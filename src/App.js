@@ -1,6 +1,5 @@
 import React from 'react';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
-import SideBarMenu from './components/common/SideBarMenu';
 import CrearPlatillo from './components/crearPlatillo/CrearPlatillo';
 import EditarPlatillo from './components/editarPlatillo/EditarPlatillo';
 import ListaPlatillos from './components/listaPlatillos/ListaPlatillos';

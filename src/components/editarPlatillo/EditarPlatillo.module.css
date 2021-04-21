@@ -2,9 +2,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 20px;
   margin: 15px;
 }
 
 body{
-  background-color: pink;
+  background-color: white;
+}
+
+.container{
+  margin: 40px;
+  padding: 40px;
+  background-color: rgb(236, 240, 241);
+}
+
+.inputs{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
