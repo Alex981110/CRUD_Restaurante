@@ -4,8 +4,11 @@
 
 a{
   color: black;
+  font-size: x-large;
 }
 
 ul{
   background-color: red;
+  height: 80px;
+  align-items: center;
 }
