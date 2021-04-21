@@ -1,0 +1,21 @@
+.title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  margin: 15px;
+}
+
+.container{
+  margin: 40px;
+  padding: 40px;
+}
+
+.containerBtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.buttons{
+  margin-left: 10px;
+}

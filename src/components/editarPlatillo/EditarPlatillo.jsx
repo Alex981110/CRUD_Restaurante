@@ -1,6 +1,6 @@
 import React from 'react';
 import SideBarMenu from '../common/SideBarMenu';
-import * as Styles from '../editarPlatillo/EditarPlatillo.module.css';
+import * as Styles from './EditarPlatillo.module.css';
 
 const EditarPlatillo = () => {
   return (
