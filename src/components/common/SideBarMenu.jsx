@@ -1,18 +1,25 @@
 import React from 'react';
 import * as Styles from '../common/SideBarMenu.module.css';
+import { Link } from 'react-router-dom';
 
 const SideBarMenu = () => {
   return (
     <>
       <ul className="nav justify-content-center">
         <li className="nav-item">
-          <a className={Styles.links + " nav-link"} aria-current="page" href="/">Menú</a>
+          <Link to="/">
+            <label className={Styles.links}>Menu</label>
+          </Link>
         </li>
         <li className="nav-item">
-          <a className={Styles.links + " nav-link"} href="EditarPlatillo">Misión</a>
+          <Link to="/EditarPlatillo">
+            <label className={Styles.links}>Editar Platillo</label>
+          </Link>
         </li>
         <li className="nav-item">
-          <a className={Styles.links + " nav-link"} href="CrearPlatillo">Visión</a>
+          <Link to="/CrearPlatillo">
+            <label className={Styles.links}>Crear Platillo</label>
+          </Link>
         </li>
       </ul>
     </>
