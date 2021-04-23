@@ -12,13 +12,13 @@ const SideBarMenu = () => {
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/EditarPlatillo">
-            <label className={Styles.links}>Editar Platillo</label>
+          <Link to="/restaurante/mision">
+            <label className={Styles.links}>Misión</label>
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/CrearPlatillo">
-            <label className={Styles.links}>Crear Platillo</label>
+          <Link to="/restaurante/vision">
+            <label className={Styles.links}>Visión</label>
           </Link>
         </li>
       </ul>
