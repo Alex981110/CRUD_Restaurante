@@ -1,6 +1,7 @@
 import React from 'react';
 import SideBarMenu from '../common/SideBarMenu';
 import * as Styles from './EditarPlatillo.module.css';
+import { Link } from 'react-router-dom';
 
 const EditarPlatillo = () => {
   return (
@@ -43,11 +44,19 @@ const EditarPlatillo = () => {
             />
           </div>
         </div>
+        <div>
+          <button className={Styles.boton + " btn btn-danger"}>Crear</button>
+        </div>
       </div>
+
+      <Link to="/">
+        <div style={{marginLeft: 40}}>
+          <button className="btn btn-danger">Atrás</button>
+        </div>
+      </Link>
 
     </div>
   )
 }
-// className={Styles.text}
 
 export default EditarPlatillo
