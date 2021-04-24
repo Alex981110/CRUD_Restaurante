@@ -6,6 +6,12 @@
   margin: 15px;
 }
 
+.container{
+  margin: 80px;
+  padding: 80px;
+  background-color: rgb(236, 240, 241);
+}
+
 body{
   background-color: white;
 }
