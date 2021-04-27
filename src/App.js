@@ -14,7 +14,7 @@ const App = () => {
           <Route exact path="/"><Redirect to = "/restaurante"></Redirect></Route>
           <Route exact path="/restaurante" component={ListaPlatillos} />
           <Route exact path="/restaurante/crearPlatillo" component={CrearPlatillo} />
-          <Route exact path="/restaurante/editarPlatillo" component={EditarPlatillo} />
+          <Route exact path="/restaurante/editarPlatillo/:idPlatillo" component={EditarPlatillo} />
           <Route exact path="/restaurante/vision" component={Vision} />
           <Route exact path="/restaurante/mision" component={Mision} />
         </Switch>
