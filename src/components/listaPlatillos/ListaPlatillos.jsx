@@ -3,11 +3,12 @@ import SideBarMenu from '../common/SideBarMenu';
 import * as Styles from './ListaPlatillos.module.css';
 import { FiEdit, MdDelete, AiOutlineShoppingCart } from 'react-icons/all';
 import { Link } from 'react-router-dom';
-import { getPlatillos, deletePlatillo, order} from '../../services/index';
+import { getPlatillos, deletePlatillo, order, getPlatilloById } from '../../services/index';
 
 const ListaPlatillos = () => {
 
   const [platillosData, setPlatillosData] = useState([]);
+  const [total, setTotal] = useState(0);
 
   const data = async () => {
     try {
@@ -30,7 +31,7 @@ const ListaPlatillos = () => {
       <h1 className={Styles.title}>Carta</h1>
 
       <Link to="/restaurante/crearPlatillo">
-        <div style={{ marginLeft: 40 }}>
+        <div style={{ paddingLeft: 40, maxWidth: 180 }}>
           <button className="btn btn-danger">Crear platillo</button>
         </div>
       </Link>
@@ -40,25 +41,24 @@ const ListaPlatillos = () => {
           <thead>
             <tr>
               <th scope="col">Nombre</th>
-              <th scope="col">Descripcion</th>
-              <th scope="col">Precio</th>
-              <th scope="col">Tipo</th>
-              <th scope="col">Cantidad</th>
-              <th scope="col" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>Acciones</th>
-              {/* TODO:fix it */}
+              <th scope="col"><div className={Styles.centerContent}>Descripcion</div></th>
+              <th scope="col"><div className={Styles.centerContent}>Precio</div></th>
+              <th scope="col"><div className={Styles.centerContent}>Tipo</div></th>
+              <th scope="col"><div className={Styles.centerContent}>Cantidad</div></th>
+              <th scope="col"><div className={Styles.centerContent}>Acciones</div></th>
             </tr>
           </thead>
           <tbody>
             {
               platillosData.map(({ _id, nombre, descripcion, precio, tipo, cantidad }) => (
                 <tr key={_id}>
-                  <td>{nombre}</td>
-                  <td>{descripcion}</td>
-                  <td>{precio}</td>
-                  <td>{tipo}</td>
-                  <td>{cantidad}</td>
+                  <td><div>{nombre}</div></td>
+                  <td><div className={Styles.centerContent} style={{ maxWidth: 400 }}>{descripcion}</div></td>
+                  <td><div className={Styles.centerContent}>${precio}</div></td>
+                  <td><div className={Styles.centerContent}>{tipo}</div></td>
+                  <td><div className={Styles.centerContent}>{cantidad}</div></td>
                   <td>
-                    <div className={Styles.containerBtn}>
+                    <div className={Styles.centerContent}>
                       <div>
                         <button
                           className={Styles.buttons + " btn btn-danger"}
@@ -77,18 +77,32 @@ const ListaPlatillos = () => {
                           <MdDelete />
                         </button>
                       </div>
-                      <Link to="/restaurante/EditarPlatillo">
-                        <div><button className={Styles.buttons + " btn btn-danger"}> <FiEdit /></button></div>
+                      <Link to={`/restaurante/EditarPlatillo/${_id}`}>
+                        <div>
+                          <button 
+                            className={Styles.buttons + " btn btn-danger"}
+                            // onClick={ 
+                            //   async() => {
+                            //     let resp = await getPlatilloById(_id);
+                            //     console.log("--->", resp.data.platillo);
+                            //     // <EditarPlatillo respData={resp}/>
+                            //   }
+                            // }
+                          >
+                            <FiEdit />
+                          </button>
+                        </div>
                       </Link>
                       <div>
                         <button
                           className={Styles.buttons + " btn btn-danger"}
+                          disabled={ cantidad === 0 ? true : false}
                           onClick={
                             async () => {
                               try {
                                 await order(_id);
-                                // console.log("OK");
                                 data()
+                                setTotal(total + precio)
                               } catch (error) {
                                 console.dir(error)
                               }
@@ -108,8 +122,8 @@ const ListaPlatillos = () => {
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
-              <td>TOTAL: <strong>$350</strong></td>
+              <td><div className={Styles.centerContent}>TOTAL</div></td>
+              <td><div><strong> ${total}</strong></div></td>
             </tr>
           </tbody>
         </table>

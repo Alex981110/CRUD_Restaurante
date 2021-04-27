@@ -10,11 +10,18 @@
   padding: 40px;
 }
 
-.containerBtn{
+.centerContent{
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .buttons{
   margin-left: 10px;
+}
+
+.total{
+  width: 100%;
+  text-align: right;
+  text-transform: uppercase;
+  padding: 8;
 }
