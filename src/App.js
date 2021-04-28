@@ -4,6 +4,7 @@ import CrearPlatillo from './components/crearPlatillo/CrearPlatillo';
 import EditarPlatillo from './components/editarPlatillo/EditarPlatillo';
 import ListaPlatillos from './components/listaPlatillos/ListaPlatillos';
 import Mision from './components/mision/Mision';
+import Promocion from './components/promo/Promocion';
 import Vision from './components/vision/Vision';
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
           <Route exact path="/restaurante/editarPlatillo/:idPlatillo" component={EditarPlatillo} />
           <Route exact path="/restaurante/vision" component={Vision} />
           <Route exact path="/restaurante/mision" component={Mision} />
+          <Route exact path="/restaurante/promocion" component={Promocion} />
         </Switch>
       </Router>
     </main>

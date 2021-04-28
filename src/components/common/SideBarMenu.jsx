@@ -21,6 +21,11 @@ const SideBarMenu = () => {
             <label className={Styles.links}>Visión</label>
           </Link>
         </li>
+        <li className="nav-item">
+          <Link to="/restaurante/promocion">
+            <label className={Styles.links}>Promo del día</label>
+          </Link>
+        </li>
       </ul>
     </>
   )

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SideBarMenu from '../common/SideBarMenu';
 import * as Styles from './ListaPlatillos.module.css';
-import { FiEdit, MdDelete, AiOutlineShoppingCart } from 'react-icons/all';
+import { FiEdit, MdDelete, AiOutlineShoppingCart} from 'react-icons/all';
 import { Link } from 'react-router-dom';
 import { getPlatillos, deletePlatillo, order } from '../../services/index';
 
@@ -81,13 +81,6 @@ const ListaPlatillos = () => {
                         <div>
                           <button 
                             className={Styles.buttons + " btn btn-danger"}
-                            // onClick={ 
-                            //   async() => {
-                            //     let resp = await getPlatilloById(_id);
-                            //     console.log("--->", resp.data.platillo);
-                            //     // <EditarPlatillo respData={resp}/>
-                            //   }
-                            // }
                           >
                             <FiEdit />
                           </button>
