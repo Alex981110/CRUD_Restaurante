@@ -3,7 +3,7 @@ import SideBarMenu from '../common/SideBarMenu';
 import * as Styles from './ListaPlatillos.module.css';
 import { FiEdit, MdDelete, AiOutlineShoppingCart } from 'react-icons/all';
 import { Link } from 'react-router-dom';
-import { getPlatillos, deletePlatillo, order, getPlatilloById } from '../../services/index';
+import { getPlatillos, deletePlatillo, order } from '../../services/index';
 
 const ListaPlatillos = () => {
 

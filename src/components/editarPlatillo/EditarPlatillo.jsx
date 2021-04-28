@@ -11,20 +11,13 @@ const EditarPlatillo = () => {
   let { idPlatillo } = useParams();
 
   const [change, setChange] = useState(false);
-  const [dataDish, setDataDish] = useState({
-    nombre: "",
-    descripcion: "",
-    precio: "",
-    tipo: "",
-    cantidad: ""
-  });
 
   const platilloById = async () => {
     try {
       let resp = await getPlatilloById(idPlatillo);
       let { platillo } = resp.data;
-      setDataDish(platillo)
-      console.log("--->", platillo);
+      // console.log("--->", platillo);
+      formik.setValues(platillo);
     } catch (error) {
       console.dir(error);
     }
@@ -35,12 +28,12 @@ const EditarPlatillo = () => {
   }, []);
 
   const formik = useFormik({
-    initialValues:{//TODO:Show initial values
-      nombre: dataDish.nombre ,
-      descripcion: dataDish.descripcion,
-      precio: dataDish.precio,
-      tipo: dataDish.tipo,
-      cantidad: dataDish.cantidad
+    initialValues:{
+      nombre: "",
+      descripcion: "",
+      precio: "",
+      tipo: "",
+      cantidad: ""
     },
     validationSchema: Yup.object({
       nombre: Yup.string().required("Campo obligatorio"),
@@ -60,10 +53,8 @@ const EditarPlatillo = () => {
       } catch (error) {
         console.dir(error)
       }
-      // console.log("--->",datosFormulario);
     }
   });
-  console.log("--------------------------->",dataDish.nombre);
 
   return (
     <div >
@@ -126,10 +117,10 @@ const EditarPlatillo = () => {
             type="submit"
             onClick={formik.handleSubmit}
           >
-            Crear
+            Editar
           </button>
           {
-            change === true ? <label className={Styles.guardado}>¡Platillo editado con éxito!</label> : <label className={Styles.guardado}>¡No hiciste ni vergas!</label>
+            change === true ? <label className={Styles.guardado}>¡Platillo editado con éxito!</label> : null
           }
         </div>
       </div>
